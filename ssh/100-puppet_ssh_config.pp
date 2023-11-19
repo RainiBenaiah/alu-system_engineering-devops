@@ -1,16 +1,16 @@
-# configuration of file so that you can connect to a server without typing a password
+# Configures ssh for dev
 include stdlib
 
-file_line { 'no_type_password':
+file_line { 'no_password_auth':
   ensure  => present,
   path    => '/etc/ssh/ssh_config',
   line    => '    PasswordAuthentication no',
   replace => true,
 }
 
-file_line { 'p_file':
+file_line { 'identity_file':
   ensure  => present,
   path    => '/etc/ssh/ssh_config',
-  line    => '    PFile ~/.ssh/school',
+  line    => '    IdentityFile ~/.ssh/school',
   replace => true,
 }
