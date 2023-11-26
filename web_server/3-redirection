@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# add a 301 redirection
 # Update package list
 sudo apt-get update || { echo "Failed to update package list"; exit 1; }
 
