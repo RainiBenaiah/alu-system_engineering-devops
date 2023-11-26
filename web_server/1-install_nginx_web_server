@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
 # install nginx and config
-#update package list
+# update package list
 sudo apt-get update
 # install nginx
 sudo apt-get install -y nginx
-#run it
+# run it
 sudo service nginx start
-#create a custome HTML page 
+# create a custom HTML page
 echo "Holberton School" | sudo tee /var/www/html/index.html > /dev/null
-#configure nginx (port 80)
-sudo sed -i 's/80 default_server/80 default_server ipv6only=on/' /etc/nginx/sites-available/default
-#restart nginx
+# configure nginx (port 80)
+sudo sed -i '/listen 80 default_server/ s/80 default_server/80 default_server ipv6only=on/' /etc/nginx/sites-available/default
+# restart nginx
 sudo service nginx restart
 sleep 2
-#if it returns the expectation
+# if it returns the expectation
 curl -s http://localhost | grep "Holberton School"
+
