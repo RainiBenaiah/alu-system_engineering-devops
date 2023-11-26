@@ -10,7 +10,7 @@ sudo apt-get install -y nginx || { echo "Failed to install Nginx"; exit 1; }
 echo "Holberton School" | sudo tee /var/www/html/index.html > /dev/null
 
 # Configure Nginx (port 80)
-sudo bash -c 'echo "server {
+sudo bash -c "echo "server {
     listen 80 default_server;
     listen [::]:80 default_server;
 
@@ -27,7 +27,7 @@ sudo bash -c 'echo "server {
         return 301 https://www.youtube.com/watch?v=7VAI73roXaY&list=PPSV;
     }
 
-}" > /etc/nginx/sites-available/default' || { echo "Failed to configure Nginx"; exit 1; }
+}" > /etc/nginx/sites-available/default" || { echo "Failed to configure Nginx"; exit 1; }
 
 # Restart Nginx
 sudo service nginx restart || { echo "Failed to restart Nginx"; exit 1; }
